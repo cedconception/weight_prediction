@@ -1,0 +1,28 @@
+{%extends "base.html"%}
+{%block title%}Predicteur de poids corporel{%endblock%}
+{% include "header.html" %}
+{%block content%}
+
+<body>
+    <div class="container mt-3">
+        <h1>Prédicteur de poids corporel</h1>
+        <form method="post">
+            <div class="mb-3 ">
+                <p> Veuillez entrez votre taille en pouces (inches) svp ! <br>
+                    Sachant qu"une pouce égal 0,0254 mètres</p>
+                <label for="height" class="bg-warning p-2 ">Taille (pouces):</label>
+                <input type="number" class="form-control" id="height" name="height" placeholder="Entrez votre taille"
+                    required>
+            </div>
+            <button type="submit" class="btn btn-primary">Prédire le poids</button>
+        </form>
+
+        {% if predicted_weight %}
+        <div class="mt-3">
+            <p>Votre poids corporel prédit est de: <strong> {{ predicted_weight }}</strong> kg.</p>
+        </div>
+        {% endif %}
+    </div>
+
+
+    {%endblock%}
